@@ -11,7 +11,7 @@ const create = async (request: Request, response: Response) => {
     } catch (error) {
         return response
             .status(400)
-            .json("Algo de errado aconteceu.");
+            .json("Algo de errado aconteceu");
     }
 };
 
