@@ -15,7 +15,4 @@ const getUrl = async () => {
     return urlsArray;
 };
 
-const linkRepository = { shortenUrl, getUrl }
-
-
-export { linkRepository };
+export default { shortenUrl, getUrl };

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { linkController } from "./controllers/linkController";
+import linkController from "./controllers/linkController";
 
-const router = Router();
+const router: Router = Router();
 
 router.post("/shorten", linkController.create);
 router.get("/shorten/:url", linkController.get);

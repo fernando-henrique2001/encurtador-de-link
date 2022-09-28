@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { linkRepository } from "../repositories/linkRepository";
+import linkRepository from "../repositories/linkRepository";
 
 
 const shortenUrl = async (url: string) => {
@@ -26,7 +26,4 @@ const getUrl = async (shortUrl: string) => {
     throw new Error()
 };
 
-const linkService = { shortenUrl, getUrl };
-
-
-export { linkService };
+export default { shortenUrl, getUrl };

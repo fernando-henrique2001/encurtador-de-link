@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { linkService } from "../services/linkService";
+import linkService from "../services/linkService";
 
 
 const create = async (request: Request, response: Response) => {
@@ -27,6 +27,4 @@ const get = async (request: Request, response: Response) => {
     }
 };
 
-const linkController = { create, get };
-
-export { linkController };
+export default { create, get };
