@@ -1,18 +1,20 @@
-import axios from "axios";
+import db from "../../src/data/db-config";
 
-
-const shortenUrl = async (url: string, shortString: string) => {
-    if (url && shortString) {
-        const data = { [shortString]: url };
-        return await axios.post("http://localhost:3000/urls",
-            data
-        )
+const shortenUrl = async (url: string, shortUrl: string) => {
+    if (url && shortUrl) {
+        const data = {
+            shortUrl,
+            url,
+        };
+        return db.insert(data).into("url");
     };
 }
 
-const getUrl = async () => {
-    const urlsArray: any = (await axios.get("http://localhost:3000/urls")).data;
-    return urlsArray;
+const getUrl = async (shortUrl: string) => {
+    const urlsArray: any = await db.select("url").where({
+        shortUrl,
+    }).table("url");
+    return urlsArray[0].url;
 };
 
 export default { shortenUrl, getUrl };

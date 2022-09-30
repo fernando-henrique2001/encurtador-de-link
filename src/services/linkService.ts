@@ -14,14 +14,7 @@ const shortenUrl = async (url: string) => {
 
 const getUrl = async (shortUrl: string) => {
     if (shortUrl) {
-        const urls = await linkRepository.getUrl();
-        for (const url of urls) {
-            for (let prop in url) {
-                if (prop === shortUrl) {
-                    return url[prop];
-                }
-            }
-        }
+        return await linkRepository.getUrl(shortUrl);
     }
     throw new Error()
 };
