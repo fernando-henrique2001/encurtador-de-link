@@ -1,6 +1,8 @@
 import express from "express";
-import { router } from "./routes";
+import { router } from "./routes/routes";
 import cors from "cors";
+import errorHandler from './error/errorHandler';
+
 
 
 const app = express();
@@ -20,3 +22,5 @@ app.listen(port, () => {
         `
     );
 });
+
+app.use(errorHandler);
